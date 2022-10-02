@@ -25,5 +25,9 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
-export const HelloButton = () => <Button>Hello World!</Button>;
-export const ClickButton = () => <Button>Click!</Button>;
+export const HelloButton = () => (
+  <Button onClick={() => console.log("Clicked_001")}>Hello World!</Button>
+);
+export const ClickButton = () => (
+  <Button onClick={() => console.log("Clicked_002")}>Click!</Button>
+);
