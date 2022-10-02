@@ -1,16 +1,17 @@
 // @ts-nocheck
 import type { NextPage } from "next";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 import { Layout, Button } from "../components";
 import Pagination from "react-responsive-pagination";
 
 const Blog: NextPage = () => {
-  const { title, content } = Router.query;
+  const router = useRouter();
+  const { title, content } = router.query;
 
   const handleBack = useCallback(() => {
-    Router.push("/");
-  }, []);
+    router.push("/");
+  }, [router]);
 
   return (
     <Layout title="Blog" h1="blog content">

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import type { NextPage } from "next";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useState, useEffect, useCallback } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -32,6 +32,7 @@ const Home: NextPage = ({ data }) => {
   const COUNT = 6;
   const totalPages = Math.ceil(data.allArticles.length / COUNT);
 
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [articles, setArticles] = useState(data.allArticles);
   const [displayArticles, setDisplayArticles] = useState([]);
@@ -42,9 +43,12 @@ const Home: NextPage = ({ data }) => {
     setDisplayArticles(sep);
   }, [articles, currentPage]);
 
-  const onClickHandler = useCallback(({ title, content }) => {
-    Router.push({ pathname: "blog", query: { title, content } });
-  }, []);
+  const onClickHandler = useCallback(
+    ({ title, content }) => {
+      router.push({ pathname: "blog", query: { title, content } });
+    },
+    [router]
+  );
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
