@@ -1,11 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
+import { Navbar, NavContent, Footer } from "..";
+
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 type LayoutProps = {
   title: string;
   h1: string;
   children: React.ReactNode;
 };
+
+const navContents: NavContent[] = [
+  { id: 1, content: "Our trips", href: "/", rightIcon: faAngleRight },
+  { id: 2, content: "Create a trip", href: "/post", rightIcon: faAngleRight },
+  { id: 3, content: "Why Fresh Tracks", href: "/" },
+];
 
 /**
  * Additional Docs
@@ -19,25 +28,17 @@ export const Layout = ({ title, h1, children }: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="text-white bg-slate-800 min-h-screen">
-        <div className="py-8 text-center">
-          <h1 className="text-3xl font-bold underline uppercase">{h1}</h1>
+      <main className="bg-secondary min-h-screen">
+        <Navbar navContents={navContents} />
+        <div className="px-12">
+          <div className="py-8 text-center">
+            <h1 className="text-3xl font-bold underline uppercase">{h1}</h1>
+          </div>
+          {children}
         </div>
-        {children}
       </main>
 
-      <footer className="py-4 bg-slate-700 text-center">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 };
