@@ -1,0 +1,24 @@
+service: jamstack
+frameworkVersion: "3"
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: ca-central-1
+
+package:
+  individually: true
+  patterns:
+    - "!**"
+    - "lambda/**"
+
+functions:
+  hello:
+    handler: lambda/handler.hello
+    environment:
+      NEXT_DATOCMS_API_TOKEN: ${env:NEXT_DATOCMS_API_TOKEN}
+    url:
+      cors:
+        allowedOrigins: "*"
+        allowedMethods: POST
