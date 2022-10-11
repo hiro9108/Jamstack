@@ -53,21 +53,21 @@ const Blog: NextPage = () => {
           <Loading />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center w-3/4 m-auto">
-          <div>{title}</div>
+        <div className="flex flex-col justify-center w-1/2 m-auto">
+          <strong>{title}</strong>
           <div className="py-8">{content}</div>
-          <div className="mt-4 mb-12">
-            <div className="inline m-8">
+          <div className="mt-4 mb-12 text-center">
+            <div className="inline-block mx-8 mb-4">
               <Button type="button" onClick={handleUpdate} disabled={disabled}>
                 Edit
               </Button>
             </div>
-            <div className="inline m-8">
+            <div className="inline-block mx-8 mb-4">
               <Button type="button" onClick={handleDelete} disabled={disabled}>
                 Delete
               </Button>
             </div>
-            <div className="inline m-8">
+            <div className="inline-block mx-8">
               <Button type="button" onClick={handleBack} disabled={disabled}>
                 Go Back
               </Button>
