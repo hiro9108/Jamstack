@@ -30,7 +30,7 @@ const Edit: NextPage = () => {
       setLoading(true);
 
       const res = await Axios.post(
-        "https://x3bzdxkvumgdkroftj6gqtc4m40bnfgj.lambda-url.ca-central-1.on.aws/",
+        `${process.env.NEXT_PUBLIC_LAMBDA_ENDPOINT}`,
         {
           id,
           title,
