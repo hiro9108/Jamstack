@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Navbar, NavContent, Footer } from "..";
-
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
+import { Navbar, NavContent, Footer } from "..";
 
 type LayoutProps = {
   title: string;
@@ -13,7 +12,6 @@ type LayoutProps = {
 const navContents: NavContent[] = [
   { id: 1, content: "Our trips", href: "/", rightIcon: faAngleRight },
   { id: 2, content: "Create a trip", href: "/post", rightIcon: faAngleRight },
-  { id: 3, content: "Why Fresh Tracks", href: "/" },
 ];
 
 /**
@@ -28,7 +26,7 @@ export const Layout = ({ title, h1, children }: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-secondary min-h-screen">
+      <main className="bg-secondary min-h-screen min-w-[380px]">
         <Navbar navContents={navContents} />
         <div className="px-12">
           <div className="py-8 text-center">

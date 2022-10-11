@@ -23,7 +23,13 @@ export const Navbar: FC<NavbarProps> = ({ navContents }) => {
     <div>
       <div className="text-black py-4 px-16">
         <div className="flex justify-between">
-          <Image src="/logo.svg" alt="logo" height={46} width={365} />
+          <div className="block md:hidden">
+            <Image src="/logo_small.svg" alt="logo" height={46} width={46} />
+          </div>
+          <div className="hidden md:block">
+            <Image src="/logo.svg" alt="logo" height={46} width={365} />
+          </div>
+
           <Button type="button">
             <a
               target="_blank"
@@ -41,7 +47,7 @@ export const Navbar: FC<NavbarProps> = ({ navContents }) => {
             <TextLink
               key={navContent.id}
               href={navContent.href}
-              wrapStyle="mr-12"
+              wrapStyle="mr-6 lg:mr-12 min-w-96"
               iconStyle="ml-2"
               addRightIcon={navContent.rightIcon}
             >
