@@ -41,7 +41,7 @@ const Home: NextPage<{ data: AllArticles }> = ({ data }) => {
   );
 
   return (
-    <Layout title="Our trips" h1="our trips">
+    <Layout title="Our posts" h1="our posts">
       {!data.allArticles.length && <NoPosts />}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         {data.allArticles.map((article) => (
