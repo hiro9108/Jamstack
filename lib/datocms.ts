@@ -11,9 +11,12 @@ export const request = ({ query, variables }: Request) => {
     authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
   };
 
-  const client = new GraphQLClient(process.env.NEXT_PUBLIC_DATOCMS_ENDPOINT, {
-    headers,
-  });
+  const client = new GraphQLClient(
+    `${process.env.NEXT_PUBLIC_DATOCMS_ENDPOINT}`,
+    {
+      headers,
+    }
+  );
 
   return client.request(query, variables);
 };
