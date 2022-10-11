@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
-import ReactPaginate from "react-paginate";
+import { useForm } from "react-hook-form";
 import Axios from "axios";
 import Swal from "sweetalert2";
 
@@ -23,8 +22,8 @@ const Edit: NextPage = () => {
     const { title, content } = data;
 
     const swal = await Swal.fire({
-      icon: "warning",
-      title: "Can you update the post?",
+      icon: "question",
+      title: "Are you sure want to update?",
     });
 
     if (swal.isConfirmed) {
@@ -41,7 +40,10 @@ const Edit: NextPage = () => {
       );
 
       if (res.status === 200) {
-        Swal.fire("The post has been updated!");
+        Swal.fire({
+          icon: "success",
+          title: "The post has been updated!",
+        });
         router.push("/");
       }
     }

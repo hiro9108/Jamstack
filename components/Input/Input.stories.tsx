@@ -1,5 +1,5 @@
 import { Input } from ".";
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
+import { ComponentStory } from "@storybook/react";
 import { useForm } from "react-hook-form";
 
 export default {

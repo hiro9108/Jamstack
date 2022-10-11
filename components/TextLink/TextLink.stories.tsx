@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
+import { ComponentStory } from "@storybook/react";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import { TextLink } from ".";

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { Button } from "..";
 
 type CardProps = {
@@ -14,14 +13,6 @@ type CardProps = {
 export const Card = ({ title, content, onClick }: CardProps) => {
   return (
     <div className="shadow-xl p-4 m-4 border rounded transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-105 hover:bg-red-50 duration-300 ">
-      {/* <div>
-        <Image
-          src="/vancouver.jpeg"
-          layout="fill"
-          objectFit="contain"
-          alt="vancouver"
-        />
-      </div> */}
       <div className="underline font-bold text-lg truncate">{title}</div>
       <div className="h-24 my-4 line-clamp-4">{content}</div>
       <div className="text-center">
