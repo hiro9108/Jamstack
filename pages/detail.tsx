@@ -58,7 +58,7 @@ const Blog: NextPage = () => {
   }, [router]);
 
   return (
-    <Layout title="Detail" h1="post detail">
+    <Layout title="Post detail " h1="post detail">
       {loading ? (
         <div className="flex justify-center items-center h-60">
           <Loading />

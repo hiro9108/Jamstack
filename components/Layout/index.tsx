@@ -10,8 +10,8 @@ type LayoutProps = {
 };
 
 const navContents: NavContent[] = [
-  { id: 1, content: "Our trips", href: "/", rightIcon: faAngleRight },
-  { id: 2, content: "Create a trip", href: "/post", rightIcon: faAngleRight },
+  { id: 1, content: "Our posts", href: "/", rightIcon: faAngleRight },
+  { id: 2, content: "Create a post", href: "/post", rightIcon: faAngleRight },
 ];
 
 /**
