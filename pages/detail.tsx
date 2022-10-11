@@ -9,7 +9,6 @@ import { Layout, Button, Loading } from "../components";
 const Blog: NextPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(false);
   const { id, title, content } = router.query;
 
   const handleUpdate = useCallback(async () => {
@@ -21,6 +20,14 @@ const Blog: NextPage = () => {
 
   const handleDelete = useCallback(async () => {
     try {
+      const { isConfirmed } = await Swal.fire({
+        icon: "question",
+        title: "Are you sure want to delete?",
+        showDenyButton: true,
+      });
+
+      if (!isConfirmed) return;
+
       setLoading(true);
       const res = await Axios.post(
         "https://x3bzdxkvumgdkroftj6gqtc4m40bnfgj.lambda-url.ca-central-1.on.aws/",
@@ -28,7 +35,10 @@ const Blog: NextPage = () => {
       );
 
       if (res.status === 200) {
-        Swal.fire("The post is deleted!");
+        Swal.fire({
+          icon: "success",
+          title: "The post has been deleted!",
+        });
         router.push("/");
       } else {
         throw new Error();
@@ -40,7 +50,8 @@ const Blog: NextPage = () => {
 
   const handleBack = useCallback(async () => {
     const { isConfirmed } = await Swal.fire({
-      title: "Go Back?",
+      icon: "question",
+      title: "Are you sure want to go back?",
       showDenyButton: true,
     });
     isConfirmed && router.push("/");
@@ -58,17 +69,17 @@ const Blog: NextPage = () => {
           <div className="py-8">{content}</div>
           <div className="mt-4 mb-12 text-center">
             <div className="inline-block mx-8 mb-4">
-              <Button type="button" onClick={handleUpdate} disabled={disabled}>
+              <Button type="button" onClick={handleUpdate}>
                 Edit
               </Button>
             </div>
             <div className="inline-block mx-8 mb-4">
-              <Button type="button" onClick={handleDelete} disabled={disabled}>
+              <Button type="button" onClick={handleDelete}>
                 Delete
               </Button>
             </div>
             <div className="inline-block mx-8">
-              <Button type="button" onClick={handleBack} disabled={disabled}>
+              <Button type="button" onClick={handleBack}>
                 Go Back
               </Button>
             </div>

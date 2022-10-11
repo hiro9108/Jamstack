@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
-import ReactPaginate from "react-paginate";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import Axios from "axios";
 import Swal from "sweetalert2";
 
@@ -18,12 +17,12 @@ const Post: NextPage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const { title, content } = data;
 
     const swal = await Swal.fire({
-      icon: "warning",
-      title: "Can you create a new post?",
+      icon: "question",
+      title: "Do you want to create a new post?",
     });
 
     if (swal.isConfirmed) {
@@ -39,7 +38,10 @@ const Post: NextPage = () => {
       );
 
       if (res.status === 200) {
-        Swal.fire("New post has been created!");
+        Swal.fire({
+          icon: "success",
+          title: "New post has been created!",
+        });
         router.push("/");
       }
     }

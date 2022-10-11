@@ -1,5 +1,4 @@
 import { Loading } from ".";
-import { ComponentStory, ComponentMeta, Story } from "@storybook/react";
 
 export default {
   title: "Common/Loading",
