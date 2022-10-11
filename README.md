@@ -1,6 +1,10 @@
+## Overview
+
+This is an simple post application with CRUD functionality following by technical stacks below. It has not been touched by any design improvements. The application does not take into account the quality of the design for now.
+
 ## Deploy URL
 
-https://jamstack-articles.vercel.app/
+https://jamstack-ftc.vercel.app/
 
 
 ## System Architecture Diagram
@@ -9,7 +13,7 @@ https://jamstack-articles.vercel.app/
 
 
 
-## Tech Stacks
+## Technical Stacks
 
 - JavaScript / TypeScript
 - React.js / Next.js
